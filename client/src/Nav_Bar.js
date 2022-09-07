@@ -1,5 +1,5 @@
 import React from "react"
-import {AppBar, Toolbar, Typography} from '@mui/material';
+import {AppBar, Toolbar, Typography, Tabs, Button} from '@mui/material';
 import {Link} from "react-router-dom"
 
 function NavBar () {
@@ -10,18 +10,21 @@ function NavBar () {
                 <AppBar>
                     <Toolbar>
                         <Typography>
-                            COWRIE
-                          <nav>
-                                <Link to="/about">About</Link>
-                                <Link to="/wallet">Wallet</Link>
-                        <Link to="/login">Login</Link>
-                        <Link to="/learners">Learners</Link>
-                        <Link to="/tutorials">Tutorials</Link>
-                        <Link to="/art">Art</Link>
-                        <Link to="/market">Market</Link>
-                        <Link to="/nfts">Nfts</Link>
-                        </nav>
-                              
+                           <h1 style={{textAlign:'center'}}> COWRIE </h1>
+                
+                            <Tabs sx={{float:'center'}}>
+                                <Link style={{textDecoration: 'none',color: 'white' , padding: '10px'}} to="/about">ABOUT</Link>
+                                <Link style={{textDecoration: 'none',color: 'white' , padding: '10px'}} to="/learners">LEARNERS</Link>
+                                <Link style={{textDecoration: 'none',color: 'white' , padding: '10px'}}to="/tutorials">TUTORIALS</Link>
+                                 <Link style={{textDecoration: 'none',color: 'white' , padding: '10px'}}to="/art">ART</Link>
+                                 <Link style={{textDecoration: 'none',color: 'white' , padding: '10px'}}to="/market">MARKET</Link>
+                                 <Link style={{textDecoration: 'none',color: 'white' , padding: '10px'}}to="/nfts">NFTS</Link>
+                                 </Tabs>
+ 
+                                 <Button sx={{padding: '10px', float: 'right'}} variant="contained"><Link style={{textDecoration: 'none',color: 'white' }} to="/wallet">WALLET</Link></Button>
+                                <Button sx={{padding: '10px', float: 'right'}} variant="contained"><Link style={{textDecoration: 'none',color: 'white' }} to="/login">SIGN-UP</Link></Button>
+                                <Button sx={{padding: '10px', float: 'right'}} variant="contained">  <Link style={{textDecoration: 'none', color: 'white' }} to="/login">LOGIN</Link> </Button>
+
                         </Typography>
                     </Toolbar>
                 </AppBar>

@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+    has_secure_password
     belongs_to :admin
     has_many :investments
     has_many :collections
