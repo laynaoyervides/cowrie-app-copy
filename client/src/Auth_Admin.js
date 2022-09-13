@@ -1,6 +1,8 @@
 function AuthAdmin () {
     return (
-        <div></div>
+        <div>
+            
+        </div>
     )
 }
 export default AuthAdmin

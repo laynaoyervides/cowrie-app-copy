@@ -51,9 +51,9 @@ ss.users << [iz, lg, dg, am, kd]
 lr.users << [lh, kd, kb, dp, wv]
 #add collections for users
 coll_iz=Collection.create (
-    {title:`IZA’s Collection`})
+    {title:"IZA’s Collection"})
     iz.collections << coll_iz
-coll_lg=Collection.create ({title:`Lily’s Collection`})
+coll_lg=Collection.create ({title:"Lily’s Collection"})
     lg.collections << coll_lg
 coll_dg=Collection.create ({title:"Digby’s Collection"})
     dg.collections << coll_dg
@@ -68,7 +68,7 @@ coll_kd=Collection.create ({title:"Karim’s Collection"})
 coll_kb=Collection.create ({title:"Kayla’s Collection"})
     kb.collections << coll_kb
 coll_dp=Collection.create ({title:"Domas’ Collection"})
-    dp.collections <<coll_dp
+    dp.collections << coll_dp
 coll_wv=Collection.create ({title:"Willard’s Collection"})
     wv.collections << coll_wv
 
@@ -88,5 +88,12 @@ tut_2 = Tutorial.create ({title:"What is a Non-Fungible Token?", description:"Lo
 tut_3 = Tutorial.create ({title:"Generative Art made with Layers", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."})
 tut_4 = Tutorial.create ({title:"Marketplaces", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."})
 tut_5 = Tutorial.create ({title:"Wallets", description:"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."})
+
+#make invesments
+
+#Set Cowrie price and quantity
+#cowrie = Cowry.create({current_price: , })
+
+
 #end of seeds
 puts "✅ Done seeding!"
