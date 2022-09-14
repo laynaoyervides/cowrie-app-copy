@@ -3,7 +3,6 @@ import { Box, Typography, TextField, Button, inputAdornmentClasses} from "@mui/m
 import AuthAdmin from "./Auth_Admin"
 import AuthUsers from "./Auth_Users"
 import CreateAdmin from "./Create_Admin"
-import { InputSharp } from "@mui/icons-material"
 
 function Login () {
 
@@ -12,13 +11,26 @@ function Login () {
             
                 name: "",
                 email: "",
-                password: ""
+                password: "",
 
             });
-
+        const handleChange = (e) => {
+            setInputs((prevState)=> ({
+                ...prevState,
+                [e.target.name] : e.target.value
+            }))
+        }
+        const handleSubmit = (e) => {
+            e.preventDefault();
+            console.log(inputs)
+        }
+        const resetState = () =>{
+            setIsSignup(!isSignup)
+            setInputs({name:"", email:"", password:""})
+        }
     return (
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <Box display ="flex" 
                 flexDirection={'column'} 
                 max width={400}
@@ -42,7 +54,8 @@ function Login () {
                 </Typography>
                 
                 {isSignup && (
-                 <TextField onChange={}
+                 <TextField 
+                    onChange={handleChange}
                     name="name"
                     value={inputs.name}
                     margin="normal" 
@@ -52,24 +65,31 @@ function Login () {
                 )}
 
                 <TextField 
+                    onChange={handleChange}
                     name="email"
                     value={inputs.email}
                     margin="normal" type={'email'} 
                     variant="outlined"
                     placeholder="Email"/>
                 <TextField 
+                    onChange={handleChange}
                     name="password"
                     value={inputs.password}
                     margin="normal" 
                     type={'password'} 
                     variant="outlined"
                     placeholder="Password"/>
-                <Button variant="contained" color="warning" sx={{marginTop: 3, borderRadius: 3}}>
+                <Button 
+                    type="submit"
+                    variant="contained" 
+                    color="warning" 
+                    sx={{marginTop: 3, borderRadius: 3}}
+                    >
                     {isSignup ? "SIGNUP" : "LOGIN"}
                     
-                    </Button>
+                </Button>
                 <Button 
-                onClick={()=> setIsSignup(!isSignup)} 
+                onClick={resetState} 
                 sx={{ marginTop:3, borderRadius: 3}}
                 >
                 Change To {isSignup ? "Login" : "Signup"}
