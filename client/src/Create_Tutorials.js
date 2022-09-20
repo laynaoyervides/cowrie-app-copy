@@ -1,8 +1,8 @@
-import { Button } from "@mui/material";
-import React from "react"
+import { Button, Box, Typography, TextField } from "@mui/material";
+import React, {useState} from "react"
 
-
-function CreateTutorials ({tutorials, addNewTutorial }) {
+//make sure to pass a prop 
+function CreateTutorials ({addNewTutorial }) {
    const [tutorialTitle, setTutorialTitle]=useState("");
    const [tutorialDescription, setTutorialDescription]=useState("");
    const [tutorialTopic, setTutorialTopic]=useState("");
@@ -11,7 +11,7 @@ function CreateTutorials ({tutorials, addNewTutorial }) {
         tutorialTitle,
         tutorialTopic,
         tutorialDescription,
-        user_id: user,
+        // user_id: user, make sure the pass as a prop
    }
    
    const configObj ={
@@ -34,44 +34,67 @@ function CreateTutorials ({tutorials, addNewTutorial }) {
    
     return (
         <div>
-            <br></br>
-            <br/>
-
-            <h1>Create a Tutorial</h1>
+           
             <form onSubmit={handleSubmit}>
-                <label htmlFor="tutorialtitle">Tutorial Title</label>
-                    <input
+                <Box display="flex"
+                    color="secondary"
+                    flexDirection={'column'}
+                    alignItems="center"
+                    justifyContent={"center"}
+                    margin="auto"
+                    marginTop={40}
+                    padding={3}
+                    borderRadius={5}
+                    boxShadow={'5px 5px 10px #ccc'}
+                    sx={{":hover": {
+                        boxShadow:'10px 10px 20px #ccc'
+                    }, maxwidth: 400}}
+                >
+                <Typography 
+                    variant="h2" 
+                    padding={3}
+                    textAlign='center'>
+                        CREATE A TUTORIAL
+                </Typography>
+                <label htmlFor="tutorialtitle">Title of Tutorial</label>
+                    <TextField
                         id="tutorialtitle"
                         type="text"
                         placeholder="Title of Tutorial"
                         name="tutorialtitle"
                         value={tutorialTitle}
                         onChange ={(e)=> setTutorialTitle(e.target.value)}
+                        margin="normal"
                         />
-                <label htmlFor="tutorialtopic">Tutorial Topic</label>
-                    <input 
+                <label htmlFor="tutorialtopic">Topic of Tutorial</label>
+                    <TextField 
                         id="tutorialTopic"
                         type="text"
                         placeholder="Topic of Tutorial"
                         name="tutorialTopic"
                         value={tutorialTopic}
                         onChange={(e)=>setTutorialTopic(e.target.value)}
-                    />
-                <label htmlFor="tutorialdescription">Tutorial Description</label>
-                    <input 
+                        margin="normal"
+                   />
+                <label htmlFor="tutorialdescription">Description of Tutorial</label>
+                    <TextField 
                         id="tutorialDescription"  
                         type="text"
                         placeholder="Description of Tutorial"
                         name="tutorialDescription"  
                         value={tutorialDescription}
                         onChange={(e)=>setTutorialDescription(e.target.value)}
+                        margin="normal"
                     />
                 <Button 
                     type="submit" 
                     variant="contained" 
-                    color="warning">
+                    color="warning"
+                    sx={{ marginTop:3, borderRadius: 3}}
+                    >
                         Create tutorial
                 </Button>
+            </Box>
             </form>
         </div>
     )
