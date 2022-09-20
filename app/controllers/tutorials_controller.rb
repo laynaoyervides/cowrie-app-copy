@@ -47,4 +47,4 @@ class TutorialsController < ApplicationController
     end
 end
 
-end
+
