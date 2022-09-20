@@ -11,16 +11,14 @@ class TutorialsController < ApplicationController
         render json: @tutorial
       end
 
-    # POST /tutorials
+# POST /tutorials
     def create
-        @tutorial = Tutorial.new(tutorial_params)
+        tutorial = Tutorial.create!(tutorial_params)
+        render json: tutorial, status: accepted
     
-        if @tutorial.save
-          render json: @tutorial, status: :created, location: @tutorial
-        else
-          render json: @tutorial.errors, status: :unprocessable_entity
-        end
-      end
+       
+    
+    end
 # PATCH/PUT /tutorials/1
   def update
     if @tutorial.update(tutorial_params)

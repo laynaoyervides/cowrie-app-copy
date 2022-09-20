@@ -9,7 +9,7 @@ function Login () {
         const [isSignup, setIsSignup] =useState(false);
         const [inputs, setInputs] =useState({
             
-                name: "",
+                username: "",
                 email: "",
                 password: "",
 
@@ -22,11 +22,24 @@ function Login () {
         }
         const handleSubmit = (e) => {
             e.preventDefault();
-            console.log(inputs)
+            fetch ("/login", {
+                method:"POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({inputs}),
+            })
+             .then ((r) => {
+                if (r.ok) {
+                r.json().then((user) => onLogin(user));
+                }
+            });
         }
+            
+        
         const resetState = () =>{
             setIsSignup(!isSignup)
-            setInputs({name:"", email:"", password:""})
+            setInputs({username:"", email:"", password:""})
         }
     return (
         <div>
@@ -56,12 +69,12 @@ function Login () {
                 {isSignup && (
                  <TextField 
                     onChange={handleChange}
-                    name="name"
-                    value={inputs.name}
+                    name="username"
+                    value={inputs.username}
                     margin="normal" 
                     type={'text'} 
                     variant="outlined" 
-                    placeholder="Name"/>
+                    placeholder="Username"/>
                 )}
 
                 <TextField 

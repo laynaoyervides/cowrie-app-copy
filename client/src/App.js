@@ -1,4 +1,4 @@
-import {Routes, Route} from "react-router-dom"
+import {Routes, Route, useEffect, useState} from "react-router-dom"
 
 //Material UI
 import {createTheme, ThemeProvider} from '@mui/material/styles'
@@ -33,10 +33,29 @@ const theme = createTheme({
   },
 });
 
+//Login Functionality
+const [user, setUser] = useState(null);
+
+useEffect(() => {
+  fetch("/me").then((response) => {
+    if (response.ok) {
+      response.json().then((user) => setUser(user));
+    }
+  });
+}, []);
+
+function handleLogin(user) {
+  setUser(user);
+}
+
+function handleLogout() {
+  setUser(null);
+}
+
   return (
     <ThemeProvider theme={theme}>
     <div className="App">
-      <NavBar />
+      <NavBar user={user} onLogout={handleLogout}/>
       <Routes>
            <Route path="/about" element={<About />} />
           <Route path="/learners" element={<Learners />} />
@@ -45,7 +64,7 @@ const theme = createTheme({
           <Route path="/art" element={<Art />} />
           <Route path="/nfts" element={<Nfts />} />
           <Route path="/wallet" element={<Wallet />} />
-          <Route path="/login" element={<Login />} />
+          <Route path="/login" element={<Login onLogin={handleLogin}/>} />
           <Route path="*" element={<h1>404 not found</h1>}/>
       </Routes>
     </div>

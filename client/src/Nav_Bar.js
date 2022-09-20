@@ -2,8 +2,12 @@ import React from "react"
 import {AppBar, Toolbar, Typography, Tabs, Tab, Button} from '@mui/material';
 import {Link} from "react-router-dom"
 
-function NavBar () {
-    
+function NavBar ({user, onLogout}) {
+    function handleLogout() {
+        fetch("/logout", {
+          method: "DELETE",
+        }).then(() => onLogout());
+      }
     
     return (
            <div>
@@ -25,7 +29,16 @@ function NavBar () {
  */}
                                  </Tabs>
 
-                                 
+                        <header>
+                            { user ? (
+                                <div>
+                                <p>Welcome, {user.username}!</p>
+                                 <button onClick={handleLogout}>Logout</button>
+                                </div>
+                                ) : (
+                                <Link to="/login">Click Here to Login</Link>)
+                            }
+                        </header>
                     </Toolbar>
                 </AppBar>
             </div>

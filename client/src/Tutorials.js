@@ -11,7 +11,7 @@ function Tutorials () {
 //get a list of tutorials
     useEffect (
         () => {
-            fetch(`http://localhost:3000/tutorials`)
+            fetch(`/tutorials`)
             .then((resp)=> resp.json())
             .then((tutorials)=>setTutorials(tutorials))
         },[]
