@@ -1,10 +1,7 @@
 import React, { useState } from "react"
 import { Box, Typography, TextField, Button} from "@mui/material"
-import AuthAdmin from "./Auth_Admin"
-import AuthUsers from "./Auth_Users"
-import CreateAdmin from "./Create_Admin"
 
-function Login () {
+function Login ({onLogin}) {
 
         const [isSignup, setIsSignup] =useState(false);
         const [inputs, setInputs] =useState({

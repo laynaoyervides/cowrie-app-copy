@@ -1,4 +1,5 @@
-import {Routes, Route, useEffect, useState} from "react-router-dom"
+import {Routes, Route} from "react-router-dom"
+import React, { useState} from "react"
 
 //Material UI
 import {createTheme, ThemeProvider} from '@mui/material/styles'
@@ -36,13 +37,13 @@ const theme = createTheme({
 //Login Functionality
 const [user, setUser] = useState(null);
 
-useEffect(() => {
+/* useEffect(() => {
   fetch("/me").then((response) => {
     if (response.ok) {
       response.json().then((user) => setUser(user));
     }
   });
-}, []);
+}, []); */
 
 function handleLogin(user) {
   setUser(user);
