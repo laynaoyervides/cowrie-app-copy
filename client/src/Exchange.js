@@ -1,3 +1,5 @@
+import React from "react"
+
 import PendingTransactions from "./Pending_Transactions"
 import CreateTransactions from "./Create_Transactions"
 

@@ -1,6 +1,13 @@
-function MakeCollections () {
+import React from "react"
+
+function MakeCollections ({addNewCollection}) {
+
     return (
-        <div></div>
+        <div>
+
+
+
+        </div>
     )
 }
 export default MakeCollections

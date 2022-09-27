@@ -1,3 +1,5 @@
+import React from "react"
+
 import ViewBalance from "./View_Balance"
 import Exchange from "./Exchange"
 import ViewPurchases from "./View_Purchases"

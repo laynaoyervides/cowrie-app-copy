@@ -1,3 +1,5 @@
+import React from "react"
+
 import ViewNfts from "./View_Nfts"
 function Nfts () {
     return (
